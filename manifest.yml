@@ -1,0 +1,27 @@
+app:
+  id: ari:cloud:ecosystem::app/REPLACE_WITH_FORGE_APP_ID
+  runtime:
+    name: nodejs20.x
+  licensing:
+    enabled: false
+
+modules:
+  webtrigger:
+    - key: discord-interactions
+      function: discordInteractions
+      response:
+        type: dynamic
+
+  function:
+    - key: discordInteractions
+      handler: index.discordInteractions
+
+permissions:
+  scopes:
+    - write:jira-work
+    - read:jira-work
+  external:
+    fetch:
+      backend:
+        - https://discord.com
+        - https://discordapp.com
